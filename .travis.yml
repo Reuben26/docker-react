@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ruyao2k/react-test -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ruyao2k/react-test npm run test -- --coverage

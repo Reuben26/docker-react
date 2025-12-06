@@ -5,11 +5,6 @@ services:
 before_install:
   - docker build -t ruyao2k/react-test -f Dockerfile.dev .
 
-before_deploy:
-  - echo "AWS_ACCESS_KEY prefix: ${AWS_ACCESS_KEY:0:8}"
-  - echo "AWS_ACCESS_KEY length: ${#AWS_ACCESS_KEY}"
-
-
 script:
   - docker run -e CI=true ruyao2k/react-test npm run test -- --coverage
 
@@ -18,6 +13,7 @@ deploy:
     region: "us-east-1"
     app: "frontend"
     env: "Frontend-env"
+    
     bucket_name: "elasticbeanstalk-us-east-1-398370989042"
     bucket_path: "frontend"
     on:

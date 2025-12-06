@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true ruyao2k/react-test npm run test -- --coverage
 
 deploy:
-    provider: elasticbeanstalk
-    region: "us-east-1"
-    app: "frontend"
-    env: "Frontend-env"
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "frontend"
+  env: "Frontend-env"
     
-    bucket_name: "elasticbeanstalk-us-east-1-398370989042"
-    bucket_path: "frontend"
-    on:
-      branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+  bucket_name: "elasticbeanstalk-us-east-1-398370989042"
+  bucket_path: "frontend"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
